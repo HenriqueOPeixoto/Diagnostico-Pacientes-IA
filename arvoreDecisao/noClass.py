@@ -1,11 +1,12 @@
-import caso
+import casoClass
 import noClass
 
 no = noClass.No
+caso = casoClass.Caso
 
 
 class No:
-    def __init__(self, conjunto_elementos: list[caso.Caso], pai: no):
+    def __init__(self, conjunto_elementos: list[caso], pai: no):
         self.conjunto_elementos = conjunto_elementos
         self.filhos:list[no] = []
         self.pai = pai
