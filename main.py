@@ -7,5 +7,5 @@ print(title)
 print('=' * title.__len__())
 
 
-# caso teste -> paciente Teste, sem febre, sem enjoo, sem manchas, com dores e doente
-teste = caso.Caso('Teste', False, False, False, True)
+# caso teste -> paciente Teste, sem febre, sem enjoo, manchas pequenas, com dores e doente
+teste = caso.Caso('Teste', 'Não', 'Não', 'Pequenas', 'Sim')
