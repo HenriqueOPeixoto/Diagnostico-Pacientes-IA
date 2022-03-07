@@ -22,6 +22,3 @@ class Caso:
     
     def setDiagnosticoDoente(diagnostico):
         self.diagnostico = True
-    
-    def setDiagnosticoSaudavel(diagnostico):
-        self.diagnostico = False
