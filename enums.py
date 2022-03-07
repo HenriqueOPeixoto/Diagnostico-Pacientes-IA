@@ -1,9 +1,9 @@
-febre = {'Sim': 1, 'Não': 0}
+febre = {'Sim': True, 'Não': False}
 
-enjoo = {'Sim': 1, 'Não': 0}
+enjoo = {'Sim': True, 'Não': False}
 
-manchas = {'Pequenas': 0, 'Grander': 1}
+manchas = {'Pequenas': False, 'Grander': True}
 
-dores = {'Sim': 1, 'Não': 0}
+dores = {'Sim': True, 'Não': False}
 
-diaginostico = {'Doente': 1, 'Saudavel':0}
+diaginostico = {'Doente': True, 'Saudavel': False}
