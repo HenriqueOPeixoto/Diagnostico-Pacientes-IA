@@ -20,5 +20,5 @@ class Caso:
         self.dores = dores
         self.diagnostico = None
     
-    def setDiagnosticoDoente(diagnostico):
+    def set_diagnostico(diagnostico):
         self.diagnostico = True
