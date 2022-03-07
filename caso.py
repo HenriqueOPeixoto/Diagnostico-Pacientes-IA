@@ -10,4 +10,4 @@ class Caso:
         self.diagnostico = None
     
     def set_diagnostico(self,diagnostico):
-        self.diagnostico = enums.diaginostico[diagnostico]
+        self.diagnostico = enums.diagnostico[diagnostico]
