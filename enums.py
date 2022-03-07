@@ -6,4 +6,4 @@ manchas = {'Pequenas': False, 'Grande': True}
 
 dores = {'Sim': True, 'Não': False}
 
-diagnostico = {'Doente': True, 'Saudavel': False}
+diagnostico = {'Doente': True, 'Saudável': False}
