@@ -21,4 +21,3 @@ class Caso:
             'dores': self.dores,
             'diagnostico': self.diagnostico
         }.get(String, None)   
-
