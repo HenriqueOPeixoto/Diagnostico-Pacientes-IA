@@ -14,6 +14,8 @@ eta = 0.4
 theta = 0.6
 '''
 
+import casoClass
+
 class Perceptron:
     def __init__(self):
         # wi é o weight, ou peso, de determinada entrada
@@ -28,5 +30,22 @@ class Perceptron:
         # limiar / threshold
         self.theta = 0.6
 
-def treinar(casos):
-    pass
+def treinar(self, casos: 'list[casoClass.Caso]'):
+    for caso in casos:
+        func_ativacao = (caso.febre * self.w1 + caso.enjoo * self.w2 + 
+            caso.manchas * self.w3 + caso.dores * self.w4 - self.theta)
+        
+        if func_ativacao >= 0:
+            y = 1
+        else:
+            y = 0
+        
+        # Se d != y, deve atualizar os pesos
+        # wi = wi + ηxi(d-y)
+        if caso.diagnostico != y:
+            self.w1 = self.w1 + self.eta * caso.febre * (caso.diagnostico - y)
+            self.w2 = self.w2 + self.eta * caso.enjoo * (caso.diagnostico - y)
+            self.w3 = self.w3 + self.eta * caso.manchas * (caso.diagnostico - y)
+            self.w4 = self.w4 + self.eta * caso.dores * (caso.diagnostico - y)
+            self.theta = self.theta + self.eta * -1 * (caso.diagnostico - y)
+
