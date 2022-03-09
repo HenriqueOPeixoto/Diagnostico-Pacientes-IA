@@ -1,7 +1,7 @@
 import perceptron.perceptron as perceptron
 from casoClass import Caso
 
-ia = perceptron.Perceptron()
+rede_neural = perceptron.Perceptron()
 
 file = open("treinamento.txt","r",encoding='utf-8')
 
@@ -13,4 +13,4 @@ for line in file:
   teste.set_diagnostico(valores[5])
   lista_casos.append(teste)
 
-perceptron.treinar(ia, lista_casos)
+perceptron.treinar(rede_neural, lista_casos)
