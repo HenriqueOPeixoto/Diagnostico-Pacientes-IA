@@ -2,10 +2,11 @@ from casoClass import Caso
 import math
 
 from enums import enums as dic_enums
+from enums import enumsSemDiaginostico as dic_enums_sem_diaginostico
 
 def calculador_entropia(conjunto_elementos: list[Caso], chave: str):
     
-    dic = dic_enums[chave]
+    dic = dic_enums_sem_diaginostico[chave]
     possibilidades = list(map(lambda x: dic[x],list(dic.keys())))
     acumulador = 0
     values_dic = {}
@@ -25,11 +26,11 @@ def calculador_entropia(conjunto_elementos: list[Caso], chave: str):
     return acumulador
 
 def calculador_entropia_geral(conjunto_elementos: list[Caso]):
-    chaves = list(dic_enums['dores'].keys())
+    chaves = list(dic_enums['diagnostico'].keys())
     dic = {}
     acumulador = 0
     for valor in chaves:
-        dic[dic_enums['dores'][valor]] = 0
+        dic[dic_enums['diagnostico'][valor]] = 0
     for elemento in conjunto_elementos:
         dic[elemento.diagnostico] += 1
 
@@ -41,23 +42,27 @@ def calculador_entropia_geral(conjunto_elementos: list[Caso]):
     return acumulador
 
 
-def calculador_ganho(conjunto_elementos: list[Caso],entropia_geral):
-    chaves = list(dic_enums.keys())
+def calculador_ganho(conjunto_elementos: list[Caso]):
+    chaves = list(dic_enums_sem_diaginostico.keys())
     resultados = {}
-
+    # print(chaves)
     for chave in chaves:
-        valores_possiveis = list(dic_enums[chave].keys())
+        valores_possiveis = list(dic_enums_sem_diaginostico[chave].keys())
         resultado_parcial = {}
         acumulador = 0
 
         for valor in valores_possiveis:
-            resultado_parcial[dic_enums[chave][valor]] = 0
+            resultado_parcial[dic_enums_sem_diaginostico[chave][valor]] = 0
 
         for elemento in conjunto_elementos:
             resultado_parcial[elemento.find_value_from_string(chave)] += 1
 
         for resultado in resultado_parcial:
             acumulador += (resultado/len(conjunto_elementos))*calculador_entropia(conjunto_elementos,chave)
-        resultados[chave] = entropia_geral - acumulador 
-    # print(resultados)
-    return None
+        resultados[chave] = calculador_entropia_geral(conjunto_elementos) - acumulador 
+    return resultados
+
+def melhor_decisao(conjunto_elementos: list[Caso]):
+    lib = calculador_ganho(conjunto_elementos)
+    chave_maior_valor = max(lib.keys(), key=(lambda key: lib[key]))
+    return([chave_maior_valor,lib[chave_maior_valor]])
