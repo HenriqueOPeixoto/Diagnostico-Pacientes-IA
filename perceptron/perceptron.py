@@ -30,22 +30,38 @@ class Perceptron:
         # limiar / threshold
         self.theta = 0.6
 
-def treinar(self, casos: 'list[casoClass.Caso]'):
-    for caso in casos:
-        func_ativacao = (caso.febre * self.w1 + caso.enjoo * self.w2 + 
-            caso.manchas * self.w3 + caso.dores * self.w4 - self.theta)
+def treinar(self, casos: 'list[casoClass.Caso]', maxCiclos):
+    atualizouPesos = True
+    cicloAtual = 0
+    while (atualizouPesos) and (cicloAtual < maxCiclos):
+        atualizouPesos = False
         
-        if func_ativacao >= 0:
-            y = 1
-        else:
-            y = 0
-        
-        # Se d != y, deve atualizar os pesos
-        # wi = wi + ηxi(d-y)
-        if caso.diagnostico != y:
-            self.w1 = self.w1 + self.eta * caso.febre * (caso.diagnostico - y)
-            self.w2 = self.w2 + self.eta * caso.enjoo * (caso.diagnostico - y)
-            self.w3 = self.w3 + self.eta * caso.manchas * (caso.diagnostico - y)
-            self.w4 = self.w4 + self.eta * caso.dores * (caso.diagnostico - y)
-            self.theta = self.theta + self.eta * -1 * (caso.diagnostico - y)
+        for caso in casos:
+            func_ativacao = (caso.febre * self.w1 + caso.enjoo * self.w2 + 
+                caso.manchas * self.w3 + caso.dores * self.w4 - self.theta)
+            
+            if func_ativacao >= 0:
+                y = 1
+            else:
+                y = 0
+            
+            # Se d != y, deve atualizar os pesos
+            # wi = wi + ηxi(d-y)
+            if caso.diagnostico != y:
+                self.w1 = self.w1 + self.eta * caso.febre * (caso.diagnostico - y)
+                self.w2 = self.w2 + self.eta * caso.enjoo * (caso.diagnostico - y)
+                self.w3 = self.w3 + self.eta * caso.manchas * (caso.diagnostico - y)
+                self.w4 = self.w4 + self.eta * caso.dores * (caso.diagnostico - y)
+                self.theta = self.theta + self.eta * -1 * (caso.diagnostico - y)
+                atualizouPesos = True
+                print('A')
+            
+        cicloAtual += 1
+        print(cicloAtual)
 
+def printPesos(self):
+    print('w1 ', self.w1)
+    print('w2 ', self.w2)
+    print('w3 ', self.w3)
+    print('w4 ', self.w4)
+    print('theta ', self.theta)
