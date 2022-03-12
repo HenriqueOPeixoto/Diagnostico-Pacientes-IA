@@ -1,0 +1,8 @@
+João Sim Sim Pequenas Sim Doente
+Pedro Não Não Grandes Não Saudável
+Maria Não Sim Pequenas Não Saudável
+José Sim Sim Grandes Sim Doente
+Ana Sim Não Pequenas Sim Saudável
+Leila Não Não Grandes Sim Doente
+Teste1 Sim Não Grandes Sim Doente
+Teste2 Sim Não Pequenas Não Doente
