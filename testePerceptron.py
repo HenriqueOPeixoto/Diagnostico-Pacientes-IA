@@ -3,7 +3,7 @@ from casoClass import Caso
 
 rede_neural = perceptron.Perceptron()
 
-file = open("treinamento.txt","r",encoding='utf-8')
+file = open("treinamento_2.txt","r",encoding='utf-8')
 
 lista_casos: Caso = []
 
@@ -13,4 +13,5 @@ for line in file:
     teste.set_diagnostico(valores[5])
     lista_casos.append(teste)
 
-perceptron.treinar(rede_neural, lista_casos)
+perceptron.treinar(rede_neural, lista_casos, 5000)
+perceptron.printPesos(rede_neural)
