@@ -54,10 +54,8 @@ def treinar(self, casos: 'list[casoClass.Caso]', maxCiclos):
                 self.w4 = self.w4 + self.eta * caso.dores * (caso.diagnostico - y)
                 self.theta = self.theta + self.eta * -1 * (caso.diagnostico - y)
                 atualizouPesos = True
-                print('A')
             
         cicloAtual += 1
-        print(cicloAtual)
 
 def printPesos(self):
     print('w1 ', self.w1)
