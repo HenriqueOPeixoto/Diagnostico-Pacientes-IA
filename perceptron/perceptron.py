@@ -15,6 +15,7 @@ theta = 0.6
 '''
 
 import casoClass
+import enums
 
 class Perceptron:
     def __init__(self):
@@ -56,6 +57,15 @@ def treinar(self, casos: 'list[casoClass.Caso]', maxCiclos):
                 atualizouPesos = True
             
         cicloAtual += 1
+
+def classificar(self, casos: 'list[casoClass.Caso]'):
+    for caso in casos:
+        u = (caso.febre * self.w1 + caso.enjoo * self.w2 + 
+                caso.manchas * self.w3 + caso.dores * self.w4 - self.theta)
+        
+        caso.set_diagnostico('Saudável')
+        if (u >= 0):
+            caso.set_diagnostico('Doente')
 
 def printPesos(self):
     print('w1 ', self.w1)
