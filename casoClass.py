@@ -12,6 +12,12 @@ class Caso:
     def set_diagnostico(self,diagnostico=''):
         self.diagnostico = enums.diagnostico[diagnostico]
 
+    def get_diagnostico_string(self):
+        if (self.diagnostico == enums.diagnostico['Doente']):
+            return 'Doente'
+        else:
+            return 'Saudável'
+
     def find_value_from_string(self,String: str):
         return {
             'nome': self.nome,
@@ -20,4 +26,4 @@ class Caso:
             'manchas': self.manchas,
             'dores': self.dores,
             'diagnostico': self.diagnostico
-        }.get(String, None)   
+        }.get(String, None)
