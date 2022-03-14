@@ -27,3 +27,22 @@ class Caso:
             'dores': self.dores,
             'diagnostico': self.diagnostico
         }.get(String, None)
+    
+    def print_caso(self):
+        print({
+            'nome': self.nome,
+            'febre': self.febre,
+            'enjoo': self.enjoo,
+            'manchas': self.manchas,
+            'dores': self.dores,
+            'diagnostico': self.diagnostico
+        })
+    def get_caso(self):
+        return ({
+            'nome': self.nome,
+            'febre': self.febre,
+            'enjoo': self.enjoo,
+            'manchas': self.manchas,
+            'dores': self.dores,
+            'diagnostico': self.diagnostico
+        })

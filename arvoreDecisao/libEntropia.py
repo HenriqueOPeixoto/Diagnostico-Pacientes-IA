@@ -21,7 +21,11 @@ def calculador_entropia(conjunto_elementos: list[Caso], chave: str):
 
     for key in possibilidades:
         probabilidade = values_dic[key]/len(conjunto_elementos)
-        acumulador += -(probabilidade)*math.log(probabilidade,2)
+        # print((probabilidade,values_dic,key,len(conjunto_elementos)))
+        if(probabilidade == 0):
+            acumulador += 1  
+        else:
+            acumulador += -(probabilidade)*math.log(probabilidade,2)
     
     return acumulador
 
@@ -65,4 +69,5 @@ def calculador_ganho(conjunto_elementos: list[Caso]):
 def melhor_decisao(conjunto_elementos: list[Caso]):
     lib = calculador_ganho(conjunto_elementos)
     chave_maior_valor = max(lib.keys(), key=(lambda key: lib[key]))
+    # print([chave_maior_valor,lib[chave_maior_valor]])
     return([chave_maior_valor,lib[chave_maior_valor]])

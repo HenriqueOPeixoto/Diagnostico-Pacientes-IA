@@ -15,21 +15,27 @@ def separaElementos (conjunto_elementos: list[Caso], chave):
                 dic[valor].append(elemento) 
     return dic
 
-def listaHomogenico(conjunto_elementos: list[Caso]):
+def listaHomogenica(conjunto_elementos: list[Caso]):
     resp = conjunto_elementos[0].diagnostico
     for elemento in conjunto_elementos:
         if(resp != elemento.diagnostico):
             return False
     return True
             
-def passaParaProximoNivelComDiaginosticoFilhosIguais(no: No):
-    print('\n\n\n')
-    print(no)
-    print('\n\n\n')
+def implementa_arvore_decisao(no: No):
+    if(listaHomogenica(no.conjunto_elementos)):
+        return True
+
     elementos_separados = separaElementos (no.conjunto_elementos, melhor_decisao(no.conjunto_elementos)[0])
-    # print('\n\n\n\n', elementos_separados,'\n\n\n\n')
     for chave in elementos_separados:
-        no.adicionar_filho(elementos_separados[chave])
-        if(not listaHomogenico(elementos_separados[chave])):
-            return True
-    return False
+        no_filho = no.adicionar_filho(elementos_separados[chave])
+        implementa_arvore_decisao(no_filho)
+
+def print_niveis_abaixo(no,nivel):
+    print("Nível nó: ",nivel)
+    print('\n\n\n')
+    for elemento in no.conjunto_elementos:
+        elemento.print_caso()
+    print('\n\n\n')
+    for filho in no.filhos:
+        print_niveis_abaixo(filho,nivel+1)

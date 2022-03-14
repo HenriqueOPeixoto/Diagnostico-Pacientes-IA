@@ -6,4 +6,5 @@ class Tree:
     def __init__(self, lista_dados_iniciais: list[Caso] ):
         self.raiz = No(lista_dados_iniciais,None)
 
-
+    def get_no(self):
+        return self.raiz

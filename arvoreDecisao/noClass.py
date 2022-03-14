@@ -7,9 +7,11 @@ class No:
         self.filhos:list[No] = []
         self.pai = pai
     
-    def adicionar_filho(self, filho):
-        no_filho = No(None,self)
+    def adicionar_filho(self, conjunto_elementos: list[Caso]):
+        no_filho = No(conjunto_elementos,self)
         self.filhos.append(no_filho)
+        return no_filho
     
+
 
 

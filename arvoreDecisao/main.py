@@ -1,4 +1,4 @@
-from arvoreDecisao.noHandler import passaParaProximoNivelComDiaginosticoFilhosIguais
+from arvoreDecisao.noHandler import implementa_arvore_decisao, print_niveis_abaixo
 from arvoreDecisao.treeClass import Tree
 from casoClass import Caso
 
@@ -15,10 +15,5 @@ def arvore_decisao():
         lista_casos.append(teste)
 
     arvore = Tree(lista_casos)
-    no_atual = arvore.raiz
-    continua_separacao = True
-    while(continua_separacao):
-        continua_separacao = passaParaProximoNivelComDiaginosticoFilhosIguais(no_atual)
-        if(continua_separacao):
-            no_atual = no_atual.conjunto_elementos
-    print('fin')
+    implementa_arvore_decisao(arvore.get_no())
+    print_niveis_abaixo(arvore.get_no(),0)
