@@ -58,6 +58,24 @@ def treinar(self, casos: 'list[casoClass.Caso]', maxCiclos):
             
         cicloAtual += 1
 
+# Avalia a porcentagem de acerto do perceptron.
+def verificar(self, casos: 'list[casoClass.Caso]'):
+    erros = 0
+    for caso in casos:
+        func_ativacao = (caso.febre * self.w1 + caso.enjoo * self.w2 + 
+                caso.manchas * self.w3 + caso.dores * self.w4 - self.theta)
+            
+        if func_ativacao >= 0:
+            y = 1
+        else:
+            y = 0
+        
+        # Se d != y, ocorreu um erro
+        if caso.diagnostico != y:
+            erros += 1
+    
+    return 1 - (erros/len(casos)) # 1 - taxa de erro = taxa de acerto
+
 def classificar(self, casos: 'list[casoClass.Caso]'):
     for caso in casos:
         u = (caso.febre * self.w1 + caso.enjoo * self.w2 + 
