@@ -22,7 +22,12 @@ for line in file_entrada:
 
 perceptron.treinar(rede_neural, lista_casos, 5000)
 perceptron.printPesos(rede_neural)
+print(perceptron.verificar(rede_neural, lista_casos) * 100, '% de acerto')
 perceptron.classificar(rede_neural, lista_casos_entrada)
+
+print()
+print('| DIAGNÓSTICOS |')
+print()
 
 print('Nome / Diagnóstico:')
 for caso in lista_casos_entrada:
